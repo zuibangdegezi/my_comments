@@ -1,11 +1,16 @@
 $(function(){
-	$('.nav-tabs li').hover(function() {
 
-		$('.nav-tabs li').removeClass('active');
-		$('.cont-box').removeClass('act');
+	function tab(element,triggers,contents) {
 
-		$(this).addClass('active');
-		$('.cont-box').eq($(this).index()).addClass('act');
+		$(element).find(triggers).hover(function() {
 
-	});
+			$(triggers).removeClass('active');
+			$(contents).removeClass('active');
+
+			$(this).addClass('active');
+			$(contents).eq($(this).index()).addClass('active');
+
+		});
+	}
+	tab('.wrap','.nav-tabs li','.cont-box');
 })
